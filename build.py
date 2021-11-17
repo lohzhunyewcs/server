@@ -626,6 +626,9 @@ RUN apt-get update && \
             libnuma-dev && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update ##[edited]
+RUN apt-get install ffmpeg libsm6 libxext6  -y
+
 RUN pip3 install --upgrade pip && \
     pip3 install --upgrade wheel setuptools docker
 
@@ -822,6 +825,9 @@ RUN apt-get update && \
             curl \
             {ort_dependencies} && \
     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update ##[edited]
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 '''.format(gpu_enabled=gpu_enabled, ort_dependencies=ort_dependencies)
 
     if enable_gpu:
